@@ -15,7 +15,7 @@
 		368DECE11B20B1F10098369F /* SSPullToRefreshSimpleContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5FDF4B16B9E8600028CF6C /* SSPullToRefreshSimpleContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		368DECE21B20B1F10098369F /* SSPullToRefreshView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5FDF4D16B9E8600028CF6C /* SSPullToRefreshView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E366FB3220F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = E366FB3020F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.m */; };
-		E366FB3320F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = E366FB3120F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h */; };
+		E366FB3320F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = E366FB3120F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,10 +104,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E366FB3320F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h in Headers */,
 				368DECDF1B20B1F10098369F /* SSPullToRefresh.h in Headers */,
 				368DECE01B20B1F10098369F /* SSPullToRefreshDefaultContentView.h in Headers */,
 				368DECE11B20B1F10098369F /* SSPullToRefreshSimpleContentView.h in Headers */,
-				E366FB3320F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h in Headers */,
 				368DECE21B20B1F10098369F /* SSPullToRefreshView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
