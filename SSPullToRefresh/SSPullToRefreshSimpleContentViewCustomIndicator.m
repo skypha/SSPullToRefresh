@@ -54,7 +54,6 @@
 		NSLocalizedString(key, nil);
 	}
 
-	NSLog(@"State: %lu", state);
 	switch (state) {
 		case SSPullToRefreshViewStateReady: {
 			self.statusLabel.text = key;
