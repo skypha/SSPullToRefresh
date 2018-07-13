@@ -2,8 +2,8 @@
 //  SSPullToRefreshSimpleContentViewCustomIndicator.h
 //  SSPullToRefresh
 //
-//  Created by Sam Soffes on 5/17/12.
-//  Copyright (c) 2012-2014 Sam Soffes. All rights reserved.
+//  Created by Bohms, Markus on 12.07.18.
+//  Copyright © 2018 Bohms, Markus. All rights reserved.
 //
 
 #import "SSPullToRefreshView.h"

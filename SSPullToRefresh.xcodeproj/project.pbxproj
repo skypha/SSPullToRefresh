@@ -14,6 +14,8 @@
 		368DECE01B20B1F10098369F /* SSPullToRefreshDefaultContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5FDF4916B9E8600028CF6C /* SSPullToRefreshDefaultContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		368DECE11B20B1F10098369F /* SSPullToRefreshSimpleContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5FDF4B16B9E8600028CF6C /* SSPullToRefreshSimpleContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		368DECE21B20B1F10098369F /* SSPullToRefreshView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5FDF4D16B9E8600028CF6C /* SSPullToRefreshView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E366FB3220F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = E366FB3020F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.m */; };
+		E366FB3320F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = E366FB3120F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		9E5FDF4C16B9E8600028CF6C /* SSPullToRefreshSimpleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSPullToRefreshSimpleContentView.m; path = SSPullToRefresh/SSPullToRefreshSimpleContentView.m; sourceTree = SOURCE_ROOT; };
 		9E5FDF4D16B9E8600028CF6C /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSPullToRefreshView.h; path = SSPullToRefresh/SSPullToRefreshView.h; sourceTree = SOURCE_ROOT; };
 		9E5FDF4E16B9E8600028CF6C /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSPullToRefreshView.m; path = SSPullToRefresh/SSPullToRefreshView.m; sourceTree = SOURCE_ROOT; };
+		E366FB3020F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshSimpleContentViewCustomIndicator.m; sourceTree = "<group>"; };
+		E366FB3120F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshSimpleContentViewCustomIndicator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 		9E5FDF1116B9E5230028CF6C /* SSPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
+				E366FB3120F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h */,
+				E366FB3020F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.m */,
 				9E5FDF4816B9E8600028CF6C /* SSPullToRefresh.h */,
 				9E5FDF4916B9E8600028CF6C /* SSPullToRefreshDefaultContentView.h */,
 				9E5FDF4A16B9E8600028CF6C /* SSPullToRefreshDefaultContentView.m */,
@@ -101,6 +107,7 @@
 				368DECDF1B20B1F10098369F /* SSPullToRefresh.h in Headers */,
 				368DECE01B20B1F10098369F /* SSPullToRefreshDefaultContentView.h in Headers */,
 				368DECE11B20B1F10098369F /* SSPullToRefreshSimpleContentView.h in Headers */,
+				E366FB3320F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.h in Headers */,
 				368DECE21B20B1F10098369F /* SSPullToRefreshView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				368DECDE1B20B1EE0098369F /* SSPullToRefreshView.m in Sources */,
+				E366FB3220F8C8F8000DE4F0 /* SSPullToRefreshSimpleContentViewCustomIndicator.m in Sources */,
 				368DECDD1B20B1EE0098369F /* SSPullToRefreshSimpleContentView.m in Sources */,
 				368DECDC1B20B1EE0098369F /* SSPullToRefreshDefaultContentView.m in Sources */,
 			);
