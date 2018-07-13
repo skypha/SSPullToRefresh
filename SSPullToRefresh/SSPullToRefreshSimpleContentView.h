@@ -8,6 +8,7 @@
 
 #import "SSPullToRefreshView.h"
 
+
 @interface SSPullToRefreshSimpleContentView : UIView <SSPullToRefreshContentView>
 
 @property (nonatomic, readonly) UILabel *statusLabel;

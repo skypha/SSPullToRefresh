@@ -44,6 +44,9 @@ typedef NS_ENUM(NSUInteger, SSPullToRefreshViewState) {
 	/// Most will say "Pull to refresh" in this state
 	SSPullToRefreshViewStateNormal,
 
+	// If you want to change the behaviour if nobody is pulling and the scrollview is just bouncing
+	SSPullToRefreshViewStateNormalHidden,
+
 	/// Most will say "Release to refresh" in this state
 	SSPullToRefreshViewStateReady,
 
@@ -81,6 +84,12 @@ typedef NS_ENUM(NSUInteger, SSPullToRefreshViewStyle) {
  pull to refresh view's position.
  */
 @property (nonatomic, assign) UIEdgeInsets defaultContentInset;
+
+/**
+ Safe area of scroll view.
+ Since iOS11 views have safeAreaInsets `scrollView` `contentOffset` is dependent upon the safe areas. This property is used when calculating current pull state.
+ */
+@property (nonatomic) UIEdgeInsets defaultSafeArea;
 
 /**
  The height of the fully expanded content view. The default is `70.0`.

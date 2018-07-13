@@ -53,7 +53,7 @@
 			[self.activityIndicatorView stopAnimating];
 			break;
 		}
-
+		case SSPullToRefreshViewStateNormalHidden:
 		case SSPullToRefreshViewStateNormal: {
 			self.statusLabel.text = NSLocalizedString(@"Pull down to refresh…", nil);
 			[self.activityIndicatorView stopAnimating];

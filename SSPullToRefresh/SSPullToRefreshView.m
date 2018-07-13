@@ -30,6 +30,7 @@
 @synthesize topInset = _topInset;
 @synthesize animationSemaphore = _animationSemaphore;
 @synthesize style = _style;
+@synthesize defaultSafeArea = _defaultSafeArea;
 
 
 #pragma mark - Accessors
@@ -150,8 +151,23 @@
 	}
 
 	self.contentView.frame = contentFrame;
+	[self adjustPullToRefreshDefaultInset];
 }
 
+- (void)adjustPullToRefreshDefaultInset
+{
+	UIEdgeInsets inset = self.scrollView.contentInset;
+	if (@available(iOS 11.0, *)) {
+		inset = self.scrollView.safeAreaInsets;
+	} else {
+		inset = self.scrollView.contentInset;
+	}
+	if ( fabs(self.defaultContentInset.top - inset.top) > DBL_EPSILON ){
+		self.defaultContentInset = inset;
+		self.scrollView.scrollIndicatorInsets = inset;
+	}
+
+}
 
 #pragma mark - Initializer
 
@@ -168,7 +184,7 @@
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		self.scrollView = scrollView;
 		self.delegate = delegate;
-		self.state = SSPullToRefreshViewStateNormal;
+		self.state = SSPullToRefreshViewStateNormalHidden;
 		self.expandedHeight = 70.0;
 		self.defaultContentInset = scrollView.contentInset;
 
@@ -218,7 +234,7 @@
 	// Animate back to the normal state
 	__weak SSPullToRefreshView *blockSelf = self;
 	[self _setState:SSPullToRefreshViewStateClosing animated:animated expanded:NO completion:^{
-		blockSelf.state = SSPullToRefreshViewStateNormal;
+		blockSelf.state = SSPullToRefreshViewStateNormalHidden;
 		
 		if (block) {
 			block();
@@ -362,10 +378,10 @@
 	}
     
 	// Get the offset out of the change notification
-	CGFloat y = [[change objectForKey:NSKeyValueChangeNewKey] CGPointValue].y + self.defaultContentInset.top;
+   CGFloat y = [[change objectForKey:NSKeyValueChangeNewKey] CGPointValue].y + self.defaultContentInset.top + self.defaultSafeArea.top;
 
 	// Scroll view is dragging
-	if (self.scrollView.isDragging) {
+	if (self.scrollView.isDragging && !self.scrollView.isDecelerating) {
 		// Scroll view is ready
 		if (self.state == SSPullToRefreshViewStateReady) {
 			// Update the content view's pulling progressing
@@ -388,10 +404,21 @@
 		} else if (self.state == SSPullToRefreshViewStateLoading) {
             CGFloat insetAdjustment = y < 0 ? fmax(0, self.expandedHeight + y) : self.expandedHeight;
 			[self _setContentInsetTop:self.expandedHeight - insetAdjustment];
+		} else if (self.state == SSPullToRefreshViewStateNormalHidden) {
+			// Update the content view's pulling progressing
+			[self _setPullProgress:-y / self.expandedHeight];
+
+			if (y < 0.0) {
+				self.state = SSPullToRefreshViewStateNormal;
+				[self _setState:SSPullToRefreshViewStateNormal animated:NO expanded:NO completion:nil];
+			}
 		}
 		return;
 	} else if (self.scrollView.isDecelerating) {
 		[self _setPullProgress:-y / self.expandedHeight];
+		if (self.state == SSPullToRefreshViewStateNormal) {
+			[self _setState:SSPullToRefreshViewStateNormalHidden animated:NO expanded:NO completion:nil];
+		}
 	}
 
 	// If the scroll view isn't ready, we're not interested
@@ -408,7 +435,7 @@
 	if ([delegate respondsToSelector:@selector(pullToRefreshViewShouldStartLoading:)]) {
 		if (![delegate pullToRefreshViewShouldStartLoading:self]) {
 			// Animate back to normal since the delegate said no
-			newState = SSPullToRefreshViewStateNormal;
+			newState = SSPullToRefreshViewStateNormalHidden;
 			expand = NO;
 		}
 	}
