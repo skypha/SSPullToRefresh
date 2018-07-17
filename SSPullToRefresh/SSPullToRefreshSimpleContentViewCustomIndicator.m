@@ -57,8 +57,11 @@
 	switch (state) {
 		case SSPullToRefreshViewStateReady: {
 			self.statusLabel.text = key;
-			[self.activityIndicatorView startAnimating];
-			self.activityIndicatorView.alpha = 0.0;
+			if (key == nil) {
+				self.statusLabel.alpha = 0.0;
+				[self.activityIndicatorView startAnimating];
+				self.activityIndicatorView.alpha = 1.0;
+			}
 			break;
 		}
 
